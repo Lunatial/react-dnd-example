@@ -2,7 +2,6 @@ import {forwardRef, useImperativeHandle, useRef} from 'react'
 import {DragSource, DropTarget,} from 'react-dnd'
 
 import CardMedia from "@mui/material/CardMedia"
-import iguana from "./static/contemplative-reptile.jpg"
 import CardContent from "@mui/material/CardContent"
 import Typography from "@mui/material/Typography"
 import CardActions from "@mui/material/CardActions"
@@ -40,7 +39,7 @@ const CardExample = forwardRef(function CardExample({
                 <CardMedia
                     component="img"
                     height="140"
-                    image={iguana}
+                    image={`https://picsum.photos/200/${id}00`}
                     alt="green iguana"
                 />
                 <CardContent>
