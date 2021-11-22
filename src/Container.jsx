@@ -1,6 +1,11 @@
 import {useState} from "react"
 import update from 'immutability-helper'
 
+import FormGroup from '@mui/material/FormGroup'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import Checkbox from '@mui/material/Checkbox'
+import Typography from '@mui/material/Typography'
+
 import CardExample from "./Card"
 
 const Container = () => {
@@ -34,6 +39,11 @@ const Container = () => {
             text: 'Gábor',
         },
     ])
+    const [checked, setChecked] = useState(true)
+
+    const handleChange = (event) => {
+        setChecked(event.target.checked)
+    }
 
     const moveCard = (dragIndex, hoverIndex) => {
         const dragCard = cards[dragIndex]
@@ -46,18 +56,32 @@ const Container = () => {
     }
 
     return (
-        <>
-            {
-                cards.map((card, index) => {
-                    return <CardExample
-                        key={card.id}
-                        id={card.id}
-                        text={card.text}
-                        index={index}
-                        moveCard={moveCard} />
-                })
-            }
-        </>
+        <div style={{margin: '1rem'}}>
+            <Typography align="center" component="h1" variant="h4" gutterBottom color="primary">React DND example</Typography>
+            <FormGroup>
+                <FormControlLabel
+                    control={<Checkbox
+                        checked={checked}
+                        onChange={handleChange}
+                    />}
+                    label={checked ? 'column' : 'row'}/>
+            </FormGroup>
+            <div style={{
+                display: 'flex',
+                flexDirection: checked ? 'column' : 'row',
+            }}>
+                {
+                    cards.map((card, index) => {
+                        return <CardExample
+                            key={card.id}
+                            id={card.id}
+                            text={card.text}
+                            index={index}
+                            moveCard={moveCard}/>
+                    })
+                }
+            </div>
+        </div>
     )
 }
 
