@@ -13,7 +13,7 @@ import {itemTypes} from './itemTypes'
 const style = {
     backgroundColor: 'white',
     cursor: 'move',
-    // width: 345,
+    minWidth: 345,
 }
 
 const CardExample = forwardRef(function CardExample({

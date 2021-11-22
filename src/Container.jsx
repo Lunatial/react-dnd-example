@@ -68,6 +68,7 @@ const Container = () => {
             </FormGroup>
             <div style={{
                 display: 'flex',
+                flexWrap: 'wrap',
                 flexDirection: checked ? 'column' : 'row',
             }}>
                 {
